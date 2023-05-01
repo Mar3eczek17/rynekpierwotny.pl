@@ -1,4 +1,7 @@
 """
+Aby uruchomić script, należy uzupełnić klucz API w pkt. 3 i wcisnąć przycisk "Run 'script'"
+"""
+"""
 1.0 Napisz skrypt w Pythonie, który wczyta plik XLSX z danymi sprzedaży mieszkań z Warszawy i wyświetli na ekranie 10
 pierwszych rekordów.
 """
