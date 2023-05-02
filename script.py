@@ -24,7 +24,7 @@ print(df.isnull().sum())
 """
 Uzupełnienie brakujących wartości metodami: forward filling i backward filling, dla lepszego zoptymalizowania danych.
 Stwierdzam, że dla obu kolumn (cena_m2 i cena), jest od 36,17% do 36,77%, pustych wartości. Dlatego przyjmuję optymalną
-procedurę uzpupełninia pustych wartości, aby zróżnicować dane, biorąc pod uwagę, że dane są zróżnicowane.
+procedurę uzpupełninia pustych wartości, aby zróżnicować dane, biorąc pod uwagę, że dane są rozproszone.
 """
 df['cena_m2'] = df['cena_m2'].fillna(method='bfill')
 df['cena'] = df['cena'].fillna(method='ffill')
@@ -75,9 +75,17 @@ avg_price = df.groupby('offer_id')['cena_m2_new'].mean()
 # Wyświetlenie wyniku
 print(avg_price)
 
-# Spr. ogólne. 33 == "Sąsiedzka 6".
+# Spr. ogólne: 33 == "Sąsiedzka 6".
 avg_price = df.loc[df['offer_id'] == 33, 'cena_m2_new'].mean()
 avg_price_lokalizacja = df.loc[df['lokalizacja'] == "Sąsiedzka 6", 'cena_m2_new'].mean()
+
+# Wyświetlenie wyniku
+print(avg_price)
+print(avg_price_lokalizacja)
+
+# Spr. ogólne: 37 == "ul. Strumykowa 6".
+avg_price = df.loc[df['offer_id'] == 37, 'cena_m2_new'].mean()
+avg_price_lokalizacja = df.loc[df['lokalizacja'] == "ul. Strumykowa 6", 'cena_m2_new'].mean()
 
 # Wyświetlenie wyniku
 print(avg_price)
@@ -153,7 +161,7 @@ query = '''
 df2 = pd.read_sql_query(query, conn)
 
 # Zapisz wyniki do nowego pliku XLSX
-df2.to_excel('nazwa_nowego_pliku.xlsx', index=False)
+df2.to_excel('Liczba_sprzedazy_mieszkan_na_miesiac.xlsx', index=False)
 
 print(df2.head())
 
