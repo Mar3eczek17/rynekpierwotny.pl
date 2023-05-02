@@ -134,7 +134,7 @@ for row in sheet.iter_rows(min_row=2, values_only=True):
         print(latitude, longitude)  # sprawdzenie
 
 # Zapisywanie zmian do pliku XLSX
-wb.save('dane_do_zadania_.xlsx')
+wb.save('liczba_sprzedazy_mieszkan_na_miesiac.xlsx')
 
 """
 4.0 Preprocessing
@@ -161,7 +161,7 @@ query = '''
 df2 = pd.read_sql_query(query, conn)
 
 # Zapisz wyniki do nowego pliku XLSX
-df2.to_excel('Liczba_sprzedazy_mieszkan_na_miesiac.xlsx', index=False)
+df2.to_excel('liczba_sprzedanych_mieszkan_na_miesiac.xlsx', index=False)
 
 print(df2.head())
 
